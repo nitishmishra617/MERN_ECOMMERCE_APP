@@ -7,7 +7,7 @@ const cors = require("cors");
 
 app.use(
   cors({
-    origin: ["https://handraftshopping-j5i66fxk7-nitishmishra617s-projects.vercel.app/"],
+    origin: ["http://localhost:3000"],
     credentials: true,
   })
 );
