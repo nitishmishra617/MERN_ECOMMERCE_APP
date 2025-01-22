@@ -6,7 +6,10 @@ const bodyParser = require("body-parser");
 const cors = require("cors");
 
 app.use(
-  cors("*")
+  cors({
+    origin: ["http://localhost:3000"],
+    credentials: true,
+  })
 );
 app.use(express.json({ limit: '10mb' })); // Set appropriate limit
 app.use(express.urlencoded({ extended: true, limit: '10mb' })); // For URL-encoded data
