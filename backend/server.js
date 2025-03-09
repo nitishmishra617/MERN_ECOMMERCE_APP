@@ -9,7 +9,6 @@ process.on("uncaughtException", (err) => {
   console.error(`Stack: ${err.stack}`);
   console.log(`shutting down the server for handling uncaught exception`);
   process.exit(1);
-  process.exit(1);
 });
 
 // config
@@ -26,8 +25,7 @@ cloudinary.config({
   cloud_name: process.env.CLOUDINARY_NAME,
   api_key: process.env.CLOUDINARY_API_KEY,
   api_secret: process.env.CLOUDINARY_API_SECRET
-})
-
+});
 
 // create server
 const server = app.listen(process.env.PORT, () => {
