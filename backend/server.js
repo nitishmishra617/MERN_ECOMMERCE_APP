@@ -1,11 +1,14 @@
+// // filepath: /f:/shopping website/backend/server.js
 const app = require("./app");
 const connectDatabase = require("./db/Database");
 const cloudinary = require("cloudinary");
 
 // Handling uncaught Exception
 process.on("uncaughtException", (err) => {
-  console.log(`Error: ${err.message}`);
+  console.error(`Error: ${err.message}`);
+  console.error(`Stack: ${err.stack}`);
   console.log(`shutting down the server for handling uncaught exception`);
+  process.exit(1);
 });
 
 // config
@@ -22,8 +25,7 @@ cloudinary.config({
   cloud_name: process.env.CLOUDINARY_NAME,
   api_key: process.env.CLOUDINARY_API_KEY,
   api_secret: process.env.CLOUDINARY_API_SECRET
-})
-
+});
 
 // create server
 const server = app.listen(process.env.PORT, () => {
@@ -34,7 +36,8 @@ const server = app.listen(process.env.PORT, () => {
 
 // unhandled promise rejection
 process.on("unhandledRejection", (err) => {
-  console.log(`Shutting down the server for ${err.message}`);
+  console.error(`Error: ${err.message}`);
+  console.error(`Stack: ${err.stack}`);
   console.log(`shutting down the server for unhandle promise rejection`);
 
   server.close(() => {
