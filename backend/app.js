@@ -5,13 +5,13 @@ const cookieParser = require("cookie-parser");
 const bodyParser = require("body-parser");
 const cors = require("cors");
 
-app.use(
-  cors({
-    origin: ["https://mern-ecommerce-app-frontend-a02uqc3yu-nitishmishra617s-projects.vercel.app"],
-    credentials: true,
-  })
-);
-// app.use(cors());
+// app.use(
+//   cors({
+//     origin: ["https://mern-ecommerce-app-frontend-a02uqc3yu-nitishmishra617s-projects.vercel.app"],
+//     credentials: true,
+//   })
+// );
+app.use(cors());
 app.use(express.json({ limit: '10mb' })); // Set appropriate limit
 app.use(express.urlencoded({ extended: true, limit: '10mb' })); // For URL-encoded data
 app.use(cookieParser());
