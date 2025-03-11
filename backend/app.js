@@ -15,7 +15,7 @@ app.use(
 app.use(express.json({ limit: '10mb' })); // Set appropriate limit
 app.use(express.urlencoded({ extended: true, limit: '10mb' })); // For URL-encoded data
 app.use(cookieParser());
-app.use("/", (req, res) => {
+app.use("/test", (req, res) => {
   res.send("Hello world!");
 });
 
